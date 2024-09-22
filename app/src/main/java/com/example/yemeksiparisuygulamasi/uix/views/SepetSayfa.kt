@@ -168,7 +168,7 @@ fun SepetItemRow(item: SepetYemek, onDelete: () -> Unit) {
                 Column {
                     Text(text = item.yemek_adi!!)
                     Text(text = "Adet: ${item.yemek_siparis_adet}")
-                    Text(text = "Fiyat: ${item.yemek_fiyat} TL")
+                    Text(text = "Fiyat: ${item.yemek_fiyat} ₺")
                 }
             }
 

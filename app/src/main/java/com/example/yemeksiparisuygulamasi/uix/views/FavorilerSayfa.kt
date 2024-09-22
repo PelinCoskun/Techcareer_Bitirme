@@ -122,12 +122,10 @@ fun FavorilerSayfa(
                             ) {
                                 Text(
                                     text = yemek.yemek_adi,
-                                    style = MaterialTheme.typography.bodyLarge,
                                     modifier = Modifier.padding(vertical = 4.dp)
                                 )
                                 Text(
-                                    text = "${yemek.yemek_fiyat}₺",
-                                    style = MaterialTheme.typography.bodyMedium
+                                    text = "Fiyat: ${yemek.yemek_fiyat}₺",
                                 )
                             }
 

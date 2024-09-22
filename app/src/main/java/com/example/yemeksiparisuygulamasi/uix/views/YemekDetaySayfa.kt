@@ -120,17 +120,38 @@ fun YemekDetaySayfa(
                         // Price of the food
                         Text(
                             text = "${yemek.yemek_fiyat}₺",
-                            style = MaterialTheme.typography.titleMedium
+                            style = MaterialTheme.typography.titleMedium,
+                            color = Anarenk
                         )
 
+                        Text(
+                            text = "Toplam: ${totalPrice}₺",
+                            style = MaterialTheme.typography.titleMedium,
+
+                        )
+                    }
+                }
+
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    // Box for quantity adjustment (artı, eksi, adet)
+                    Box(
+                        modifier = Modifier
+                            .background(Color.Transparent, shape = RoundedCornerShape(30.dp))
+                            .border(1.dp, Anarenk2, shape = RoundedCornerShape(30.dp))
+                            .padding(8.dp) // Kenarlık ve iç boşluk için padding
+                    ) {
                         Row(
                             verticalAlignment = Alignment.CenterVertically,
                             horizontalArrangement = Arrangement.spacedBy(16.dp)
                         ) {
+                            // Decrease button (eksi) with border
                             Box(
                                 modifier = Modifier
-                                    .background(Color.Transparent, shape = RoundedCornerShape(15.dp))
-                                    .border(1.dp, Anarenk2, shape = RoundedCornerShape(15.dp))
+                                    .border(1.dp, Anarenk2, shape = RoundedCornerShape(15.dp)) // Kenarlık ekledik
                                     .size(30.dp)
                             ) {
                                 IconButton(onClick = {
@@ -141,12 +162,13 @@ fun YemekDetaySayfa(
                                 }
                             }
 
-                            Text(text = quantity.value)
+                            // Quantity text
+                            Text(text = quantity.value, style = MaterialTheme.typography.titleLarge)
 
+                            // Increase button (artı) with border
                             Box(
                                 modifier = Modifier
-                                    .background(Color.Transparent, shape = RoundedCornerShape(15.dp))
-                                    .border(1.dp, Anarenk2, shape = RoundedCornerShape(15.dp))
+                                    .border(1.dp, Anarenk2, shape = RoundedCornerShape(15.dp)) // Kenarlık ekledik
                                     .size(30.dp)
                             ) {
                                 IconButton(onClick = {
@@ -157,36 +179,33 @@ fun YemekDetaySayfa(
                                 }
                             }
                         }
+                    }
 
-                        Text(
-                            text = "Toplam: ${totalPrice}₺",
-                            style = MaterialTheme.typography.titleMedium
+                    // Add to cart button (Sepete Ekle)
+                    Button(
+                        onClick = {
+                            yemekDetaySayfaViewModel.sepeteEkle(
+                                foodName = yemek.yemek_adi,
+                                foodImageName = yemek.yemek_resim_adi,
+                                foodPrice = yemek.yemek_fiyat.toInt(),
+                                foodQuantity = quantity.value.toInt(),
+                                userName = yemekDetaySayfaViewModel.userName
+                            )
+                            secilenItem.value = 2
+                            navController.navigate("sepetSayfa") { launchSingleTop = true }
+                        },
+                        modifier = Modifier
+                            .fillMaxWidth(0.8f)
+                            .padding(vertical = 10.dp)
+                            .height(55.dp),
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = Anarenk
                         )
+                    ) {
+                        Text(text = "Sepete Ekle", style = MaterialTheme.typography.titleLarge)
                     }
                 }
 
-                Button(
-                    onClick = {
-                        yemekDetaySayfaViewModel.sepeteEkle(
-                            foodName = yemek.yemek_adi,
-                            foodImageName = yemek.yemek_resim_adi,
-                            foodPrice = yemek.yemek_fiyat.toInt(),
-                            foodQuantity = quantity.value.toInt(),
-                            userName = yemekDetaySayfaViewModel.userName
-                        )
-                        secilenItem.value = 2
-                        navController.navigate("sepetSayfa") { launchSingleTop = true }
-                    },
-                    modifier = Modifier
-                        .fillMaxWidth(0.5f)
-                        .padding(vertical = 10.dp)
-                        .height(80.dp),
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = Anarenk
-                    )
-                ) {
-                    Text(text = "Sepete Ekle")
-                }
             }
         }
     )
