@@ -45,7 +45,6 @@ class YemekDetaySayfaViewModel @Inject constructor(var yrepo: YemeklerRepository
         }
     }
 
-    // Miktarı azaltma fonksiyonu
     fun miktarAzalt(quantity: String): Int {
         return if (quantity != "") {
             quantity.toInt() - 1
@@ -54,7 +53,6 @@ class YemekDetaySayfaViewModel @Inject constructor(var yrepo: YemeklerRepository
         }
     }
 
-    // Miktar kontrolü
     fun miktarKontrol(quantity: String): String {
         return if (quantity != "") {
             when {
@@ -67,7 +65,6 @@ class YemekDetaySayfaViewModel @Inject constructor(var yrepo: YemeklerRepository
         }
     }
 
-    // Toplam fiyat güncelleme fonksiyonu
     fun toplamGuncelle(quantity: String, price: Int): Int {
         return if (quantity != "") {
             quantity.toInt() * price

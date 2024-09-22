@@ -165,7 +165,6 @@ fun YemekDetaySayfa(
                     }
                 }
 
-                // Sepete Ekle Button (Card altında)
                 Button(
                     onClick = {
                         yemekDetaySayfaViewModel.sepeteEkle(
@@ -179,7 +178,7 @@ fun YemekDetaySayfa(
                         navController.navigate("sepetSayfa") { launchSingleTop = true }
                     },
                     modifier = Modifier
-                        .fillMaxWidth(0.5f) // Buton genişliği
+                        .fillMaxWidth(0.5f)
                         .padding(vertical = 10.dp)
                         .height(80.dp),
                     colors = ButtonDefaults.buttonColors(
