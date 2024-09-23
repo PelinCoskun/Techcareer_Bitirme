@@ -11,7 +11,6 @@ class YemeklerRepository(var yds: YemeklerDataSource) {
         yds.sepeteYemekEkle(yemek_adi, yemek_resim_adi, yemek_fiyat, yemek_siparis_adet, kullanici_adi)
     }
 
-
     suspend fun sepetiYukle(kullanici_adi: String): List<SepetYemek> = yds.sepetiYukle(kullanici_adi)
 
     suspend fun sepettenYemekSil(sepet_yemek_id: Int, kullanici_adi: String) =

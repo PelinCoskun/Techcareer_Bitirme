@@ -49,7 +49,6 @@ class FavoriSayfaViewModel @Inject constructor(var frepo:FavoriYemekRepository) 
     }
 
     fun isFavorited(yemek_adi: String): Boolean {
-        // Favorilerdeki yemekleri kontrol ederek, var mı yok mu bakabilirsiniz
         return favoriListesi.value?.any { it.yemek_adi == yemek_adi } ?: false
     }
 

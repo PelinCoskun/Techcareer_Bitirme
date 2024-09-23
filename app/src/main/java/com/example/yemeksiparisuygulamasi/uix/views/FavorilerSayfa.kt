@@ -71,7 +71,7 @@ fun FavorilerSayfa(
                     ) {
                         Text(
                             text = "Favoriler",
-                            style = MaterialTheme.typography.headlineLarge // Stil ekledik
+                            style = MaterialTheme.typography.headlineLarge
                         )
                     }
                 },
@@ -103,7 +103,6 @@ fun FavorilerSayfa(
                                 .clip(MaterialTheme.shapes.large),
                             verticalAlignment = Alignment.CenterVertically
                         ) {
-                            // Yemek Resmi
                             val imageUrl = "http://kasimadalan.pe.hu/yemekler/resimler/${yemek.yemek_resim}"
 
                             GlideImage(
@@ -114,7 +113,6 @@ fun FavorilerSayfa(
                                     .clip(MaterialTheme.shapes.medium)
                             )
 
-                            // Yemek Bilgileri
                             Column(
                                 modifier = Modifier
                                     .padding(start = 8.dp)
@@ -129,7 +127,6 @@ fun FavorilerSayfa(
                                 )
                             }
 
-                            // Silme Butonu En Sağa
                             IconButton(
                                 onClick = {
                                     favoriSayfaViewModel.favoriSil(yemek.yemek_id)

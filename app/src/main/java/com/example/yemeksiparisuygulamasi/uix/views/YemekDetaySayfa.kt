@@ -64,11 +64,11 @@ fun YemekDetaySayfa(
                 title = {
                     Box(
                         modifier = Modifier.fillMaxWidth(),
-                        contentAlignment = Alignment.Center // Ortala
+                        contentAlignment = Alignment.Center
                     ) {
                         Text(
                             text = "Yemek Detayı",
-                            style = MaterialTheme.typography.headlineLarge // Stil ekledik
+                            style = MaterialTheme.typography.headlineLarge
                         )
                     }
                 },
@@ -87,7 +87,6 @@ fun YemekDetaySayfa(
                 verticalArrangement = Arrangement.SpaceBetween,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                // Card with food details
                 Card(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -102,7 +101,6 @@ fun YemekDetaySayfa(
                             .fillMaxWidth()
                             .padding(16.dp)
                     ) {
-                        // Image of the food
                         GlideImage(
                             imageModel = "http://kasimadalan.pe.hu/yemekler/resimler/${yemek.yemek_resim_adi}",
                             modifier = Modifier
@@ -110,14 +108,12 @@ fun YemekDetaySayfa(
                                 .clip(RoundedCornerShape(8.dp))
                         )
 
-                        // Name of the food
                         Text(
                             text = yemek.yemek_adi ?: "Yemek Adı Yok",
                             style = MaterialTheme.typography.headlineMedium,
                             modifier = Modifier.padding(bottom = 8.dp)
                         )
 
-                        // Price of the food
                         Text(
                             text = "${yemek.yemek_fiyat}₺",
                             style = MaterialTheme.typography.titleMedium,
@@ -137,21 +133,19 @@ fun YemekDetaySayfa(
                     horizontalArrangement = Arrangement.SpaceBetween,
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    // Box for quantity adjustment (artı, eksi, adet)
                     Box(
                         modifier = Modifier
                             .background(Color.Transparent, shape = RoundedCornerShape(30.dp))
                             .border(1.dp, Anarenk2, shape = RoundedCornerShape(30.dp))
-                            .padding(8.dp) // Kenarlık ve iç boşluk için padding
+                            .padding(8.dp)
                     ) {
                         Row(
                             verticalAlignment = Alignment.CenterVertically,
                             horizontalArrangement = Arrangement.spacedBy(16.dp)
                         ) {
-                            // Decrease button (eksi) with border
                             Box(
                                 modifier = Modifier
-                                    .border(1.dp, Anarenk2, shape = RoundedCornerShape(15.dp)) // Kenarlık ekledik
+                                    .border(1.dp, Anarenk2, shape = RoundedCornerShape(15.dp))
                                     .size(30.dp)
                             ) {
                                 IconButton(onClick = {
@@ -162,13 +156,11 @@ fun YemekDetaySayfa(
                                 }
                             }
 
-                            // Quantity text
                             Text(text = quantity.value, style = MaterialTheme.typography.titleLarge)
 
-                            // Increase button (artı) with border
                             Box(
                                 modifier = Modifier
-                                    .border(1.dp, Anarenk2, shape = RoundedCornerShape(15.dp)) // Kenarlık ekledik
+                                    .border(1.dp, Anarenk2, shape = RoundedCornerShape(15.dp))
                                     .size(30.dp)
                             ) {
                                 IconButton(onClick = {
@@ -181,7 +173,6 @@ fun YemekDetaySayfa(
                         }
                     }
 
-                    // Add to cart button (Sepete Ekle)
                     Button(
                         onClick = {
                             yemekDetaySayfaViewModel.sepeteEkle(

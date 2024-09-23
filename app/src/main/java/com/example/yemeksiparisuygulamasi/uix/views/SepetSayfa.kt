@@ -93,7 +93,7 @@ fun SepetSayfa(navController: NavController, sepetSayfaViewModel: SepetSayfaView
                         Text(
                             text = "Sepetim",
                             modifier = Modifier.align(Alignment.TopCenter),
-                            style = MaterialTheme.typography.headlineLarge // İsteğe bağlı stil
+                            style = MaterialTheme.typography.headlineLarge
                         )
                     }
                 },
@@ -172,7 +172,6 @@ fun SepetItemRow(item: SepetYemek, onDelete: () -> Unit) {
                 }
             }
 
-            // Yemek Silme butonu
             IconButton(onClick = onDelete) {
                 Icon(Icons.Default.Delete,
                     contentDescription = "Yemek Sil",

@@ -42,7 +42,6 @@ class SepetSayfaViewModel @Inject constructor(val yrepo: YemeklerRepository) : V
                     sepetList.value = combinedItems
                     toplamFiyatHesapla()
                     Log.e("SepetSayfa", "Sepeti yükleme hatası: ${sepetList.value}")
-                 //   if (response.){}
                 }
             } catch (e: Exception) {
                 Log.e("SepetSayfa", "Sepeti yükleme hatası: ${e.message}")

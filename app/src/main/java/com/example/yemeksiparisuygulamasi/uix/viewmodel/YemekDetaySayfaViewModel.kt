@@ -17,26 +17,23 @@ class YemekDetaySayfaViewModel @Inject constructor(var yrepo: YemeklerRepository
     var sepetList = MutableLiveData<List<SepetYemek>>()
     var userName = "pelincoskun"
 
-    // Sepete yemek ekleme fonksiyonu
     fun sepeteEkle(foodName: String, foodImageName: String, foodPrice: Int, foodQuantity: Int, userName: String="pelincoskun") {
         CoroutineScope(Dispatchers.Main).launch {
             Log.d("SepetEkleCevap", "Cevap: ${yrepo.sepeteYemekEkle(foodName, foodImageName, foodPrice, foodQuantity, userName)}")
-            sepetiYukle() // Sepet güncelleniyor
+            sepetiYukle()
         }
     }
 
-    // Kullanıcının sepetindeki yiyecekleri yükleme fonksiyonu
     fun sepetiYukle() {
         CoroutineScope(Dispatchers.Main).launch {
             try {
                 sepetList.value = yrepo.sepetiYukle(userName)
             } catch (e: Exception) {
-                sepetList.value = emptyList() // Hata durumunda sepet boş olarak güncelleniyor
+                sepetList.value = emptyList()
             }
         }
     }
 
-    // Miktarı artırma fonksiyonu
     fun miktarArttir(quantity: String): Int {
         return if (quantity != "") {
             quantity.toInt() + 1
