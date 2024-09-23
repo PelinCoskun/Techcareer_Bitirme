@@ -1,2 +1,2 @@
 ﻿# Techcareer_Bitirme
- ![Screenshot_1727090301](https://github.com/user-attachments/assets/213b4dc0-5bc2-4e6c-8348-714171f02aa3) ![Screenshot_1727090290](https://github.com/user-attachments/assets/82fe434f-1f7e-46c7-909b-e498efd6b538) ![Screenshot_1727090265](https://github.com/user-attachments/assets/78a6baaa-facb-4f48-b97b-d1d4f7d4e701) ![Screenshot_1727089874](https://github.com/user-attachments/assets/e80f7d73-16f9-48cb-8d7f-4f51e42ca440)
+![Screenshot_1727089874](https://github.com/user-attachments/assets/8b9cb7cc-2dc5-409a-ba09-6ece438a46ad)
